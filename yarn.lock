@@ -9556,8 +9556,10 @@ __metadata:
     "@testing-library/user-event": ^13.2.1
     eslint: ^8.54.0
     eslint-config-react-app: ^7.0.1
+    postcss-import: ^15.1.0
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-icons: ^4.12.0
     react-router-dom: ^6.20.0
     react-scripts: 5.0.1
     web-vitals: ^2.1.0
@@ -10995,6 +10997,15 @@ __metadata:
   version: 6.0.11
   resolution: "react-error-overlay@npm:6.0.11"
   checksum: ce7b44c38fadba9cedd7c095cf39192e632daeccf1d0747292ed524f17dcb056d16bc197ddee5723f9dd888f0b9b19c3b486c430319e30504289b9296f2d2c42
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^4.12.0":
+  version: 4.12.0
+  resolution: "react-icons@npm:4.12.0"
+  peerDependencies:
+    react: "*"
+  checksum: db82a141117edcd884ade4229f0294b2ce15d82f68e0533294db07765d6dce00b129cf504338ec7081ce364fe899b296cb7752554ea08665b1d6bad811134e79
   languageName: node
   linkType: hard
 
