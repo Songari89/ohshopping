@@ -1,0 +1,28 @@
+@value bgcolor,brandcolor,menucolor,fontcolor from '../util/constants.css';
+
+.container{
+  display:flex;
+  align-items:center;
+  color: menucolor;
+  font-size: 0.9rem;
+  margin: 0 0 0 1rem;
+  border: 1.5px solid brandcolor;
+  border-radius: 0.7rem;
+}
+
+.container > img {
+  width: 1.2rem;
+  padding: 0;
+  border-radius:50%;
+}
+
+.container > p {
+  padding:  0 0 0.1rem 0;
+  margin: 0 0.5rem 0 0.2rem;;
+}
+
+@media(max-width:500px){
+  .container {
+    display:none;
+  }
+}

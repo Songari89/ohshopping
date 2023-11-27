@@ -1,5 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  signOut,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+} from "firebase/auth";
 // import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
@@ -18,10 +24,6 @@ const provider = new GoogleAuthProvider();
 export function login() {
   // Header에서 로그인버튼을 클릭하면 해당 함수 호출
   signInWithPopup(auth, provider)
-    .then((result) => {
-      const user = result.user;
-      console.log(user);
-    })
     .catch(console.error);
   //catch(error => console.error(error))
 
@@ -32,4 +34,17 @@ export function login() {
   //     .catch((error) => {
   //       console.error(error);
   //     });
+}
+
+export function logout() {
+  // Header에서 로그인버튼을 클릭하면 해당 함수 호출
+  signOut(auth)
+    .catch(console.error);
+}
+
+export function onUserStateChange(callback){
+  onAuthStateChanged(auth, (user) => {
+    callback(user)
+    //콜백함수를 호출하고 user값을 callback함수에 전달
+  });
 }

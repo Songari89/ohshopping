@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../components/Header.module.css";
 import { Link } from "react-router-dom";
 import { TbPencilPlus } from "react-icons/tb";
-import { login } from "../api/firebase";
+import { login, logout, onUserStateChange } from "../api/firebase";
+import User from "./User";
 
 export default function Header() {
+  const [user, setUser] = useState();
+  useEffect(() => {
+    onUserStateChange((user) => setUser(user))
+    console.log(user);
+  }, []);
+
   return (
     <div className={styles.container}>
       <Link to="/">
@@ -16,7 +23,9 @@ export default function Header() {
         <Link to="/newproduct">
           <TbPencilPlus className={styles.pencil} />
         </Link>
-        <button onClick={login}>LOG IN</button>
+        {user && <User user={user}/>}
+        {!user && <button onClick={login}>LOGIN</button>}
+        {user && <button onClick={logout}>LOGOUT</button>}
       </nav>
     </div>
   );
