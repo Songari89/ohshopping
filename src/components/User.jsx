@@ -7,6 +7,7 @@ export default function User({user}) {
     <div className={styles.container}>
       <img src={photoURL} alt={displayName}/>
       <p>{displayName}</p>
+      {console.log(user)}
     </div>
   );
 }

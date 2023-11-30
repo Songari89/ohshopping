@@ -26,14 +26,13 @@ nav {
   position: absolute;
   right: 3.5rem;
   display: flex;
-  aligh-items: center;
+  align-items: center;
 }
 nav > a {
   margin: 0 0.5rem;
   color: menucolor;
   text-decoration: none;
   font-size: 0.9rem;
-  padding: 2px 0 0 0;
 }
 
 .pencil {
@@ -44,11 +43,15 @@ nav > a {
 
 button {
   border: none;
-  background-color: #fff;
-  color: menucolor;
+  background-color: brandcolor;
+  color: #fff;
   font-size: 0.9rem;
-  margin: 0 0 0 0rem;
+  padding: 0.2rem 0.7rem;;
+  border-radius: 4rem;
   cursor: pointer;
+}
+button:hover {
+  background-color: #AB1F1F;
 }
 
 @media (min-width: 1540px) {

@@ -10,19 +10,40 @@ import Main from "./pages/Main";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import NewProduct from "./pages/NewProduct";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-const router = createBrowserRouter([{
-  path: "/",
-  element: <App />,
-  errorElement: <NotFound />,
-  children: [
-    { index: true, element: <Main /> },
-    { path: "/products", element: <Products /> },
-    { path: "/products/:id", element: <ProductDetail /> },
-    { path: "/cart", element: <Cart /> },
-    { path: "/newproduct", element: <NewProduct /> },
-  ],
-}]);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <NotFound />,
+    children: [
+      { index: true, element: <Main /> },
+      {
+        path: "/products",
+        element: <Products />,
+      },
+      { path: "/products/:id", element: <ProductDetail /> },
+      {
+        path: "/cart",
+        element: (
+          <ProtectedRoute>
+            <Cart />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/newproduct",
+        element: (
+          <ProtectedRoute requireAdmin>
+            {/*requireAdmin={true} 요약 가능 */}
+            <NewProduct />
+          </ProtectedRoute>
+        ),
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
