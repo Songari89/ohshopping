@@ -1,0 +1,120 @@
+@value bgcolor,brandcolor,menucolor,fontcolor,subinfocolor from '../util/constants.css';
+
+.container {
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin:0 auto;
+}
+
+.category {
+  width: 100%;
+  margin: 1rem 0 0 0;
+  padding: 0.1rem 0 0 0;
+  font-size:0.9rem;
+  color:fontcolor;
+  font-weight:600;
+  text-align:center;
+}
+
+.prdbox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+    border-top: 2px solid brandcolor;
+}
+
+.prdbox > img {
+  width: 45%;
+  margin: 1rem;
+  border-radius:0.4rem;
+}
+
+.prdinfo {
+  width: 50%;
+  padding: 3rem 1.5rem;
+  color: fontcolor;
+}
+
+.title {
+  margin: 0;
+  padding: 0 0.5rem;
+}
+
+.price {
+  margin: 0 0 0.8rem 0;
+  padding: 0.3rem 0.5rem;
+  font-weight: 600;
+  border-bottom: 1.5px solid #bebebe;
+}
+
+.description {
+  margin: 0;
+  padding: 0.5rem;
+  color: subinfocolor;
+}
+
+.optionbox {
+  padding: 0.5rem;
+  display: flex;
+  border-bottom: 1.5px solid #bebebe;
+}
+.option {
+  margin: 0;
+  padding: 0;
+  color: brandcolor;
+}
+
+.select {
+  width: 6rem;
+  margin: 0 0.3rem;
+  color: subinfocolor;
+  text-align: center;
+  border: solid brandcolor 1px;
+  border-radius: 0.2rem;
+}
+
+.selectedbox {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+}
+
+.selectedbox > p {
+  margin: 0.4rem 0 0 0;
+}
+
+.selectedbox > .check {
+  width: 100%;
+  margin: 0;
+}
+
+.tocart {
+  width: 100%;
+  background-color: brandcolor;
+  color: #fff;
+  border: none;
+  margin: 1rem 0;
+  padding: 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+@media (max-width: 590px) {
+  .prdbox {
+    flex-wrap: wrap;
+  }
+  .prdbox > img {
+    margin:0;
+    width: 100%;
+    border-radius:0;
+  }
+  .prdinfo {
+    width: 100%;
+  }
+}

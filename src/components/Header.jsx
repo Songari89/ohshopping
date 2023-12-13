@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import styles from "../components/Header.module.css";
 import { Link } from "react-router-dom";
 import { TbPencilPlus } from "react-icons/tb";
@@ -21,8 +21,16 @@ export default function Header() {
           </Link>
         )}
         {user && <User user={user} />}
-        {!user && <button onClick={login}>LOGIN</button>}
-        {user && <button onClick={logout}>LOGOUT</button>}
+        {!user && (
+          <button className={styles.btn} onClick={login}>
+            LOGIN
+          </button>
+        )}
+        {user && (
+          <button className={styles.btn} onClick={logout}>
+            LOGOUT
+          </button>
+        )}
       </nav>
     </div>
   );

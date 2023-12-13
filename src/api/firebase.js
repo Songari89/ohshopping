@@ -6,7 +6,8 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
 } from "firebase/auth";
-import { getDatabase, ref, child, get, set } from "firebase/database";
+import { getDatabase, ref,get, set } from "firebase/database";
+import { v4 as uuid } from "uuid";
 
 // import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
 
@@ -43,12 +44,12 @@ export function logout() {
   signOut(auth).catch(console.error);
 }
 
-export function writeUserData(userId, name, email, imageUrl){
-  return set(ref(database, 'users/' + userId ), {
+export function writeUserData(userId, name, email, imageUrl) {
+  return set(ref(database, "users/" + userId), {
     username: name,
     email: email,
-    profile_picture: imageUrl
-  })
+    profile_picture: imageUrl,
+  });
 }
 
 export function onUserStateChange(callback) {
@@ -71,5 +72,40 @@ async function adminUser(user) {
       return { ...user, isAdmin };
     }
     return user;
+  });
+}
+
+export async function addNewProduct(product, imageURL) {
+  const id = uuid();
+  const category = product.category;
+  return set(ref(database, `products/${category}/${id}`), {
+    ...product,
+    id,
+    price: parseInt(product.price),
+    image: imageURL,
+    options: product.options.toUpperCase().split(","), //콤마로 옵션을 나누면 split으로 나눠서 배열 형태로 저장
+  });
+}
+
+// export async function getProducts(){
+//   return get(ref(database, 'products')).then((snapshot) => {
+//     if(snapshot.exists()){
+//       return Object.values(snapshot.val())
+//     }
+//     return [];
+//   })
+// }
+
+export async function getProducts() {
+  return get(ref(database, "products")).then((snapshot) => {
+    if (snapshot.exists()) {
+      const categories = snapshot.val();
+      let allProducts = [];
+      Object.values(categories).map(category => {
+        allProducts = [...allProducts, ...Object.values(category)]
+      })
+      return allProducts;
+    }
+    return [];
   });
 }

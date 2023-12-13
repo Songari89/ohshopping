@@ -1,6 +1,24 @@
 /* @import '../util/constants.css'; */
 @value bgcolor,brandcolor,menucolor,fontcolor from '../util/constants.css';
 
-.container{
-  background-color: bgcolor;
+.container {
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  flex-wrap: wrap;
+}
+
+.container > p{
+  width:90vw;
+  margin:0.9rem 0 0 0;
+  padding:0.1rem;
+  color:fontcolor;
+  font-weight:600;
+  font-size:0.9rem;
+}
+.product{
+  width:90vw;
+  background-color:#fff;
+  padding: 0 1rem;
+  border-top:2px brandcolor solid;
 }

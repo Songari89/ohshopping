@@ -1,0 +1,50 @@
+@value bgcolor,brandcolor,menucolor,fontcolor from '../util/constants.css';
+
+.container{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.container> h4 {
+  width:100%;
+  margin: 2rem 0;
+  text-align:center;
+}
+
+.sucess {
+  width:100%;
+  margin:0;
+  padding:0;
+  text-align:center;
+  font-size: 0.9rem;
+}
+.container>img {
+  width:25rem;
+  display:block;
+}
+
+.form{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+.form > input {
+  width: 85vw;
+  padding: 0.6rem;
+  margin: 0.4rem 0;
+  border: none;
+}
+
+.form > button{
+  display:block;
+  width: 85vw;
+  padding: 0.6rem;
+  border:none;
+  background-color:brandcolor;
+  color:#fff;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin: 0.6rem 0;
+}

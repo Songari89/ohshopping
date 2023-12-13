@@ -1,13 +1,19 @@
 import React from "react";
 import styles from "./User.module.css";
 
-export default function User({user}) {
-  const {displayName,photoURL } = user;
+export default function User({ user }) {
+  const { displayName, photoURL } = user;
   return (
     <div className={styles.container}>
-      <img src={photoURL} alt={displayName}/>
+      {photoURL && (
+        <img className={styles.imgbox} src={photoURL} alt={displayName} />
+      )}
+      {!photoURL && subImage()}
       <p>{displayName}</p>
-      {console.log(user)}
     </div>
   );
+}
+
+function subImage() {
+  return <div className={styles.imgbox}></div>;
 }

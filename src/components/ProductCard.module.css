@@ -1,0 +1,30 @@
+@value bgcolor,brandcolor,menucolor,fontcolor,subinfocolor from '../util/constants.css';
+
+.prdlist {
+  width: 12rem;
+}
+.container{
+  width:100%;
+  background-color:#fff;
+  border-radius:0.4rem;
+  overflow:hidden;
+  box-shadow: 0.5px 1.5px 1px 0 rgba(0, 0, 0, 0.1);
+  cursor:pointer;
+}
+.container > img {
+  width: 12rem;
+}
+.title{
+  color: fontcolor;
+  margin:0;
+  padding:0.2rem 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.price{
+  margin:0 0 0.4rem 0;
+  padding: 0 0.5rem;
+  font-size:0.8rem;
+  color: subinfocolor;
+}

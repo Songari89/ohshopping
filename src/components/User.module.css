@@ -1,29 +1,31 @@
 @value bgcolor,brandcolor,menucolor,fontcolor from '../util/constants.css';
 
-.container{
+.container {
   height: 1.4rem;
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   color: menucolor;
   font-size: 0.9rem;
-  margin:0 0.3rem 0 1rem;
+  margin: 0 0.3rem 0 1rem;
   border: 1.5px solid brandcolor;
   border-radius: 0.7rem;
-  padding:0;
+  padding: 0;
 }
 
-.container > img {
+.imgbox {
   width: 1.3rem;
+  height: 1.3rem;
+  background-color: brandcolor;
   padding: 0;
-  border-radius:50%;
+  border-radius: 50%;
 }
 
 .container > p {
-  margin: 0 0.5rem 0 0.2rem;;
+  margin: 0 0.5rem 0 0.2rem;
 }
 
-@media(max-width:500px){
+@media (max-width: 500px) {
   .container {
-    display:none;
+    display: none;
   }
 }

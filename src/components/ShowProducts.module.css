@@ -1,0 +1,17 @@
+.container{
+  width:100%;
+  display:flex;
+  justify-content: center;
+}
+
+.lists {
+  margin: 1.5rem 0;
+  padding:0;
+  list-style: none;
+  width:90vw;
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  place-items:center;
+  gap:1rem;
+
+}

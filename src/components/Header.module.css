@@ -1,7 +1,7 @@
 @value bgcolor,brandcolor,menucolor,fontcolor from '../util/constants.css';
 
 .container {
-  width: 93vw;
+  width: 90vw;
   height: 3rem;
   background-color: #fff;
   border-radius: 0.4rem;
@@ -41,7 +41,7 @@ nav > a {
   stroke-width: 2.3;
 }
 
-button {
+.btn {
   border: none;
   background-color: brandcolor;
   color: #fff;
@@ -50,7 +50,7 @@ button {
   border-radius: 4rem;
   cursor: pointer;
 }
-button:hover {
+.btn:hover {
   background-color: #AB1F1F;
 }
 
