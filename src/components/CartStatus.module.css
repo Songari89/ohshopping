@@ -1,0 +1,27 @@
+@value bgcolor,brandcolor,menucolor,fontcolor from '../util/constants.css';
+
+.container{
+  display:flex;
+  align-items:center;
+  position:relative;
+}
+.cart {
+  width:1.3rem;
+  height:1.3rem;
+  stroke-width:3;
+  margin: 0 0.2rem 0 0;
+}
+
+.count{
+  width:0.9rem;
+  height:0.9rem;
+  border-radius:50%;
+  background-color: brandcolor;
+  color:#fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  position:absolute;
+  top:0;
+  right:0;
+  text-align:center;
+}

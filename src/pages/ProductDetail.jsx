@@ -1,15 +1,30 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "./ProductDetail.module.css";
+import { useUserContext } from "../context/UserProvider";
+import { addOrUpdateToCart } from "../api/firebase";
 
 export default function ProductDetail() {
+  const { uid: userId } = useUserContext();
   const location = useLocation();
   const { id, title, image, options, price, category, description } =
     location.state.product;
   const [selected, setSelected] = useState();
+  const [success, setSuccess] = useState(""); 
   const handleSelect = (e) => setSelected(e.target.value);
   const handleClick = (e) => {
     //장바구니에 product와 selected 전달하기
+    if (!selected) {
+      alert("옵션을 선택하세요.");
+      return;
+    }
+    const product = { id, image, title, price, option: selected, quantity: 1 };
+    // const product = {...location.state.product, option: selected, quantity: 1}
+    addOrUpdateToCart(userId, product);
+    setSuccess('✅ 상품이 장바구니에 담겼습니다.')
+    setTimeout(() => {
+      setSuccess(null)
+    }, 3000)
   };
   // const { state : {
   //   product: {id, image, title, options, category,price, description}
@@ -28,12 +43,13 @@ export default function ProductDetail() {
               옵션:
             </label>
             <select
-              className={styles.select}
+              className={styles.userselect}
               id="option"
               onChange={handleSelect}
               value={selected}
+              defaultValue="defaultvalue"
             >
-              <option disable hidden value="">
+              <option hidden value="defaultvalue">
                 --- 선택 ---
               </option>
               {options &&
@@ -55,6 +71,7 @@ export default function ProductDetail() {
               </>
             )}
           </div>
+          {success && <p className={styles.success}>{success}</p>}
           <button className={styles.tocart} onClick={handleClick}>
             장바구니에 담기
           </button>

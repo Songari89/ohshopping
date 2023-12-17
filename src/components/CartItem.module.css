@@ -1,0 +1,73 @@
+@value bgcolor,brandcolor,menucolor,fontcolor,subinfocolor from '../util/constants.css';
+@value subtitlefontsize, subtitlefontweight, subtitlemargin, subtitlepadding, bordertop from '../util/constants.css';
+
+.item{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  border-bottom: 1.5px solid #bebebe;
+}
+
+.image{
+  width: 25%;
+  margin:1rem 2rem;
+  border-radius:0.4rem;
+}
+
+.productinfo {
+  width: 50%;
+  padding: 0 ;
+}
+
+.productinfo>p{
+  color: subinfocolor;
+  margin: 0.2rem 0;
+  font-size: 0.8rem;
+}
+
+.productinfo>.title{
+  color: fontcolor;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.price {
+  font-weight: 600;
+}
+
+
+.quantitybox{
+  display:flex;
+  align-items:center;
+  margin: 0 2rem 0 0;
+}
+
+.quantity {
+  margin:0 0.3rem;
+}
+
+.quantitybtn {
+  font-size: 1.2rem;
+  color: brandcolor;
+  margin: 0 0.2rem;
+  cursor : pointer;
+}
+
+@media (max-width: 768px){
+  .image{
+    width:20%;
+  }
+}
+
+@media (max-width: 500px) {
+  .image {
+    margin: 1rem 0.5rem 1rem 0;
+  }
+  .quantitybox {
+    margin: 0 0.5rem 0 0;
+  }
+  .quantitybtn {
+    font-size: 1rem;
+  }
+}
+

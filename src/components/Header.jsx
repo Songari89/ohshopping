@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { TbPencilPlus } from "react-icons/tb";
 import User from "./User";
 import { useUserContext } from "../context/UserProvider";
+import CartStatus from "./CartStatus";
 
 export default function Header() {
   const { user, login, logout } = useUserContext();
@@ -14,7 +15,7 @@ export default function Header() {
       </Link>
       <nav>
         <Link to="/products">PRODUCTS</Link>
-        {user && <Link to="/cart">CART</Link>}
+        {user && <Link to="/cart"><CartStatus/></Link>}
         {user && user.isAdmin && (
           <Link to="/newproduct">
             <TbPencilPlus className={styles.pencil} />

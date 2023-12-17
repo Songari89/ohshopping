@@ -1,0 +1,24 @@
+@value bgcolor,brandcolor,menucolor,fontcolor,subinfocolor from '../util/constants.css';
+@value subtitlefontsize, subtitlefontweight, subtitlemargin, subtitlepadding, bordertop from '../util/constants.css';
+
+.container {
+  padding: 1rem;
+  margin: 1rem 2rem;
+}
+
+.container> p {
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  text-align : center;
+}
+
+.text {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: subinfocolor;
+}
+
+.price {
+  font-weight: 600;
+  color: brandcolor;
+}

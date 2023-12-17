@@ -1,5 +1,6 @@
 /* @import '../util/constants.css'; */
-@value bgcolor,brandcolor,menucolor,fontcolor from '../util/constants.css';
+@value bgcolor,brandcolor,menucolor,fontcolor,subinfocolor from '../util/constants.css';
+@value subtitlefontsize, subtitlefontweight, subtitlemargin, subtitlepadding, bordertop from '../util/constants.css';
 
 .container {
   width: 100%;
@@ -11,14 +12,21 @@
 .container > p{
   width:90vw;
   margin:0.9rem 0 0 0;
-  padding:0.1rem;
+  padding:subtitlepadding;
   color:fontcolor;
-  font-weight:600;
-  font-size:0.9rem;
+  font-weight:subtitlefontweight;
+  font-size:subtitlefontsize;
 }
 .product{
   width:90vw;
   background-color:#fff;
   padding: 0 1rem;
-  border-top:2px brandcolor solid;
+  border-top:bordertop;
+}
+
+
+@media(max-width:400px){
+  .product{
+    width:100%;
+  }
 }

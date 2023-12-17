@@ -1,7 +1,9 @@
+@value brandcolor from '../util/constants.css';
+
 .container {
   width: 90vw;
   position: relative;
-  font-size:1rem;
+  font-size: 1rem;
 }
 
 .banner {
@@ -29,6 +31,20 @@
   font-weight: 600;
 }
 
-.sub{
-  font-size:1em;
+.sub {
+  font-size: 1em;
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: 100%;
+  }
+  .banner {
+    border-radius: 0;
+    margin : 0 0 1rem 0;
+  }
+  .text {
+    position: static;
+    background-color: brandcolor;
+  }
 }

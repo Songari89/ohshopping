@@ -1,4 +1,6 @@
 @value bgcolor,brandcolor,menucolor,fontcolor,subinfocolor from '../util/constants.css';
+@value subtitlefontsize, subtitlefontweight, subtitlemargin, subtitlepadding, bordertop from '../util/constants.css';
+
 
 .container {
   width: 90vw;
@@ -10,11 +12,11 @@
 
 .category {
   width: 100%;
-  margin: 1rem 0 0 0;
-  padding: 0.1rem 0 0 0;
-  font-size:0.9rem;
+  margin: subtitlemargin;
+  padding: subtitlepadding;
+  font-size:subtitlefontsize;
   color:fontcolor;
-  font-weight:600;
+  font-weight:subtitlefontweight;
   text-align:center;
 }
 
@@ -23,7 +25,8 @@
   display: flex;
   justify-content: center;
   background-color: #fff;
-    border-top: 2px solid brandcolor;
+    border-top: bordertop;
+    padding: 1rem;
 }
 
 .prdbox > img {
@@ -67,7 +70,7 @@
   color: brandcolor;
 }
 
-.select {
+.userselect {
   width: 6rem;
   margin: 0 0.3rem;
   color: subinfocolor;
@@ -92,6 +95,13 @@
   margin: 0;
 }
 
+.success {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
 .tocart {
   width: 100%;
   background-color: brandcolor;
@@ -110,11 +120,16 @@
     flex-wrap: wrap;
   }
   .prdbox > img {
-    margin:0;
+    margin: 0;
     width: 100%;
-    border-radius:0;
   }
   .prdinfo {
+    width: 100%;
+  }
+}
+
+@media(max-width:400px){
+  .container{
     width: 100%;
   }
 }

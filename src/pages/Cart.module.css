@@ -1,0 +1,54 @@
+@value bgcolor,brandcolor,menucolor,fontcolor,subinfocolor from '../util/constants.css';
+@value subtitlefontsize, subtitlefontweight, subtitlemargin, subtitlepadding, bordertop from '../util/constants.css';
+
+.section {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.mycart {
+  margin: 2rem 0 0 0;
+  padding: subtitlepadding;
+  font-size: subtitlefontsize;
+  font-weight: subtitlefontweight;
+  color: fontcolor;
+  text-align: center;
+}
+
+.container {
+  background-color: #fff;
+  width: 100%;
+  border-top: bordertop;
+  padding: 1rem;
+  
+}
+
+.container> p{
+  text-align: center;
+}
+
+
+.pricebox{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.toorder{
+  width: 100%;
+  background-color: brandcolor;
+  color: #fff;
+  border: none;
+  margin: 1rem 0;
+  padding: 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+@media(max-width:400px){
+  .section{
+    width: 100%;
+  }
+}

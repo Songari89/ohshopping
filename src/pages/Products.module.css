@@ -1,4 +1,5 @@
-@value bgcolor,brandcolor,menucolor,fontcolor from '../util/constants.css';
+@value bgcolor,brandcolor,menucolor,fontcolor,subinfocolor from '../util/constants.css';
+@value subtitlefontsize, subtitlefontweight, subtitlemargin, subtitlepadding, bordertop from '../util/constants.css';
 
 .container{
   width:90vw;
@@ -10,23 +11,28 @@
 
 .categories{
   width:100%;
-  margin: 1rem 0 0 0;
+  margin: subtitlemargin;
   padding:0;
   display: flex;
   justify-content:center;
-  list-style:none;
 }
 
 .categories>li{
   padding: 0.1rem 0.5rem;
-  font-size:0.9rem;
+  font-size:subtitlefontsize;
   color:fontcolor;
-  font-weight:600;
+  font-weight:subtitlefontweight;
 }
 
 .productsbox{
   width:100%;
   padding: 0 1rem; 
   background-color:#fff;
-  border-top: 2px solid brandcolor;
+  border-top: bordertop;
+}
+
+@media(max-width:400px){
+  .container{
+    width: 100%;
+  }
 }

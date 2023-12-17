@@ -6,7 +6,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
 } from "firebase/auth";
-import { getDatabase, ref,get, set } from "firebase/database";
+import { getDatabase, ref, get, set, remove } from "firebase/database";
 import { v4 as uuid } from "uuid";
 
 // import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
@@ -101,11 +101,35 @@ export async function getProducts() {
     if (snapshot.exists()) {
       const categories = snapshot.val();
       let allProducts = [];
-      Object.values(categories).map(category => {
-        allProducts = [...allProducts, ...Object.values(category)]
-      })
+      Object.values(categories).forEach((category) => {
+        allProducts = [...allProducts, ...Object.values(category)];
+      });
       return allProducts;
     }
     return [];
   });
 }
+
+export async function addOrUpdateToCart(userId, product) {
+  return set(ref(database, `carts/${userId}/${product.id}`), product);
+}
+
+export async function getCart(userId) {
+  return get(ref(database, `carts/${userId}`)).then((snapshot) => {
+    const items = snapshot.val() || {};
+    return Object.values(items)
+  });
+}
+
+export async function removeFromCart(userId, productId){
+  return remove(ref(database, `carts/${userId}/${productId}`))
+}
+
+// export async function getCart(userId) {
+//   return get(ref(database, `carts/${userId}`)).then((snapshot) => {
+//     if(snapshot.exists()){
+//       return Object.values(snapshot.val())
+//     }
+//     return [];
+//   });
+// }

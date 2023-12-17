@@ -1,5 +1,13 @@
+/* 컬러 차트 */
 @value brandcolor: #880C0C;
 @value bgcolor: #EDE6DD;
 @value menucolor: #4D3517;
 @value fontcolor: #333;
 @value subinfocolor: #4C4C4C;
+
+/* 스타일 차트 */
+@value bordertop: solid 2px brandcolor; 
+@value subtitlemargin: 1rem 0 0 0;
+@value subtitlepadding: 0.1rem 0 ;
+@value subtitlefontsize: 0.9rem;
+@value subtitlefontweight: 600;
