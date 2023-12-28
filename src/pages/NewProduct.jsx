@@ -3,6 +3,7 @@ import styles from "./NewProduct.module.css";
 import { uploadImage } from "../api/uploader";
 import useProducts from "../hooks/useProducts";
 
+
 export default function NewProduct() {
   const [product, setProduct] = useState({});
   const [file, setFile] = useState(); //file은 value 속성을 가질 수 없고 file의 url이 필요함으로 데이터를 따로 관리해준다.

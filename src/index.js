@@ -10,6 +10,7 @@ import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import NewProduct from "./pages/NewProduct";
 import ProtectedRoute from "./components/ProtectedRoute";
+import styles from "./index.module.css";
 
 const router = createBrowserRouter([
   {
