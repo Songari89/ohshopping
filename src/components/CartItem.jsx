@@ -2,16 +2,17 @@ import React from "react";
 import styles from "./CartItem.module.css";
 import { LuMinusSquare, LuPlusSquare } from "react-icons/lu";
 import {TbTrashXFilled} from 'react-icons/tb'
-import { addOrUpdateToCart, removeFromCart } from "../api/firebase";
+import useCart from "../hooks/useCart";
 
 export default function CartItem({ product , userId }) {
   const { id, title, image, option, price, quantity } = product;
+  const {addOrUpdateItem, removeItem} = useCart();
   const handleMinus = () => {
     if(product.length < 2) return;
-    addOrUpdateToCart(userId, {...product, quantity: quantity - 1})
+    addOrUpdateItem.mutate({...product, quantity: quantity - 1})
   };
-  const handlePlus = () => {addOrUpdateToCart(userId, { ...product, quantity: quantity + 1 });};
-  const handleDelete = () => {removeFromCart(userId, id)};
+  const handlePlus = () => {addOrUpdateItem.mutate(userId, { ...product, quantity: quantity + 1 });};
+  const handleDelete = () => {removeItem.mutate(id)};
   return (
     <li className={styles.item}>
       <img className={styles.image} src={image} alt={title} />

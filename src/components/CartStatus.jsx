@@ -1,13 +1,10 @@
 import React from 'react';
 import { PiShoppingCartSimple} from 'react-icons/pi'
 import styles from './CartStatus.module.css';
-import {useQuery} from '@tanstack/react-query'
-import { getCart } from "../api/firebase";
-import { useUserContext } from "../context/UserProvider";
+import useCart from "../hooks/useCart";
 
 export default function CartStatus() {
-  const {uid} = useUserContext();
-  const {data: products} = useQuery({queryKey:['carts'] ,queryFn: () => getCart(uid)})
+  const {cartQuery: {data:products}} = useCart();
   return (
     <div className={styles.container}>
       <p>CART</p>

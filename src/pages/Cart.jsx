@@ -1,20 +1,14 @@
 import React from "react";
 import styles from "./Cart.module.css";
-import { useQuery } from "@tanstack/react-query";
-import { getCart} from "../api/firebase";
-import { useUserContext } from "../context/UserProvider";
 import CartItem from "../components/CartItem";
 import PriceCard from "../components/PriceCard";
 import { PiPlusCircle, PiEqualsBold } from "react-icons/pi";
-
-
+import useCart from "../hooks/useCart";
 
 export default function Cart() {
-  const { uid: userId } = useUserContext();
-  const { isLoading, data: products } = useQuery({
-    queryKey: [],
-    queryFn: () => getCart(userId),
-  });
+  const {
+    cartQuery: { isLoading, data: products },
+  } = useCart();
   if (isLoading) {
     return <p>페이지를 읽어오는 중...</p>;
   }
@@ -37,7 +31,7 @@ export default function Cart() {
             <ul>
               {products &&
                 products.map((product) => (
-                  <CartItem key={product.id} product={product} userId={userId}/>
+                  <CartItem key={product.id} product={product} />
                 ))}
             </ul>
             <div className={styles.pricebox}>
@@ -54,4 +48,3 @@ export default function Cart() {
     </div>
   );
 }
-

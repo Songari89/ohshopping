@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "./ProductDetail.module.css";
-import { useUserContext } from "../context/UserProvider";
-import { addOrUpdateToCart } from "../api/firebase";
+import useCart from "../hooks/useCart";
+
 
 export default function ProductDetail() {
-  const { uid: userId } = useUserContext();
+  const {addOrUpdateItem} = useCart();
   const location = useLocation();
   const { id, title, image, options, price, category, description } =
     location.state.product;
@@ -20,7 +20,7 @@ export default function ProductDetail() {
     }
     const product = { id, image, title, price, option: selected, quantity: 1 };
     // const product = {...location.state.product, option: selected, quantity: 1}
-    addOrUpdateToCart(userId, product);
+    addOrUpdateItem.mutate(product);
     setSuccess('✅ 상품이 장바구니에 담겼습니다.')
     setTimeout(() => {
       setSuccess(null)

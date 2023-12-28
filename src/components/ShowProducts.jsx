@@ -1,19 +1,11 @@
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
-import { getProducts } from "../api/firebase";
 import NotFound from "../pages/NotFound";
 import ProductCard from "./ProductCard";
 import styles from "./ShowProducts.module.css";
+import useProducts from "../hooks/useProducts";
 
 export default function ShowProducts() {
-  const {
-    isLoading,
-    error,
-    data: products,
-  } = useQuery({
-    queryKey: ["products"],
-    queryFn: getProducts,
-  });
+  const {getProducts: {isLoading, error, data: products}} = useProducts();
   return (
     <div className={styles.container}>
       {isLoading && <p>페이지를 읽어오는 중...</p>}
